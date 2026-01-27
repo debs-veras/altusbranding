@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
 /* Base styles */
 html {
@@ -16,24 +17,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2c3746, #ff1b1b);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff1b1b, #2c3746);
 }
 
 /* Selection styling */
@@ -57,40 +40,6 @@ body {
   outline: none;
 }
 
-/* Smooth transitions */
-.smooth-transition {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Custom animations */
-@keyframes subtle-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-subtle-pulse {
-  animation: subtle-pulse 2s ease-in-out infinite;
-}
-
-/* Utility classes */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Glass effect */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-@import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
 @theme {
   /* AltusBranding Color Palette */
@@ -261,18 +210,6 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans;
-  }
-
   h1,
   h2,
   h3,
@@ -285,17 +222,8 @@ body {
 }
 
 @layer components {
-  .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
-    font-family: var(--font-display);
-  }
-
   .heading-section {
     @apply text-3xl md:text-4xl font-bold tracking-tight;
-  }
-
-  .heading-card {
-    @apply text-xl md:text-2xl font-semibold;
   }
 
   .text-spaced {
@@ -306,21 +234,6 @@ body {
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-border/50;
     box-shadow: var(--shadow-md);
-  }
-
-  .accent-underline {
-    position: relative;
-  }
-
-  .accent-underline::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--color-accent);
-    border-radius: 2px;
   }
 
   .hover-lift {

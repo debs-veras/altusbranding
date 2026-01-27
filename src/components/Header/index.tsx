@@ -638,17 +638,30 @@ const Header = () => {
                   </div>
 
                   {/* Menu header */}
-                  <div className="relative p-8 border-b border-gray-100">
-                    <div className="flex items-center space-x-4">
-                      <img
-                        src={logo}
-                        alt="ALTUSBRANDING"
-                        className="h-10 w-auto"
+                  <div className="relative p-6 border-b border-gray-100 flex items-center justify-between">
+                    <span className="text-xs font-semibold tracking-[0.35em] uppercase text-gray-500">
+                      Menu
+                    </span>
+
+                    {/* Botão fechar */}
+                    <motion.button
+                      onClick={() => setIsMenuOpen(false)}
+                      aria-label="Fechar menu"
+                      className="relative w-10 h-10 flex items-center justify-center rounded-full"
+                      whileHover={{ scale: 1.1, rotate: 90 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <span className="absolute w-5 h-0.5 bg-gray-800 rotate-45" />
+                      <span className="absolute w-5 h-0.5 bg-gray-800 -rotate-45" />
+
+                      {/* glow sutil */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        animate={{
+                          background: `radial-gradient(circle, ${COLORS.accent}30, transparent 70%)`,
+                        }}
                       />
-                      <div className="text-sm font-medium text-gray-500">
-                        Navegação
-                      </div>
-                    </div>
+                    </motion.button>
                   </div>
 
                   {/* Menu items */}

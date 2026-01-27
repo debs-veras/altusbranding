@@ -40,7 +40,7 @@ const Hero = () => {
       id="home"
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="relative h-[220vh] overflow-hidden"
+      className="relative max-h-[220vh] overflow-hidden"
     >
       {/* =========================
           BACKGROUND FX
@@ -49,7 +49,10 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           style={{ top: glowY, opacity: glowOpacity }}
-          className="absolute left-1/2 -translate-x-1/2 w-lg h-128 rounded-full
+          className="absolute left-1/2 -translate-x-1/2
+          w-[clamp(18rem,40vw,32rem)]
+          h-[clamp(18rem,40vw,32rem)]
+          rounded-full
           bg-[radial-gradient(circle,rgba(45,62,80,0.25),transparent_65%)]"
         />
       </div>
@@ -69,7 +72,7 @@ const Hero = () => {
 
           <motion.h1
             style={{ y: titleY }}
-            className="text-[clamp(3rem,5.5vw,5.5rem)] font-light leading-[1.05]"
+            className="text-[clamp(2.6rem,6vw,5.5rem)] font-light leading-[1.05]"
           >
             Não criamos apenas
             <br />
@@ -80,7 +83,7 @@ const Hero = () => {
 
           <motion.p
             style={{ y: subtitleY }}
-            className="mt-10 max-w-xl text-lg opacity-70"
+            className="mt-10 max-w-xl text-base md:text-lg opacity-70"
           >
             Estratégia, design e experiência digital para marcas que querem
             autoridade e crescimento real.
@@ -89,7 +92,7 @@ const Hero = () => {
       </div>
 
       {/* =========================
-          ATO 2 — CENTRALIZADO
+          ATO 2
       ========================= */}
 
       <section className="relative h-screen flex items-center justify-center">
@@ -102,7 +105,7 @@ const Hero = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-white/90">
+            <h2 className="text-[clamp(1.9rem,4vw,3.2rem)] font-semibold leading-tight text-white/90">
               Estratégia antes da estética.
               <br />
               <span className="font-light text-white/60">
@@ -112,7 +115,7 @@ const Hero = () => {
 
             <div className="h-1 w-24 bg-accent/50 my-8 rounded-full" />
 
-            <p className="text-lg text-white/70 max-w-md">
+            <p className="text-base md:text-lg text-white/70 max-w-md">
               Construímos marcas como sistemas vivos: coerentes, escaláveis e
               feitas para durar.
             </p>
@@ -124,7 +127,9 @@ const Hero = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center space-y-12 border-t lg:border-t-0 lg:border-l border-white/10 pt-12 lg:pt-0 lg:pl-12"
+            className="flex flex-col justify-center space-y-12
+            border-t lg:border-t-0 lg:border-l border-white/10
+            pt-12 lg:pt-0 lg:pl-12"
           >
             {[
               ["BRANDING ESTRATÉGICO", "Posicionamento e diferenciação"],
@@ -147,25 +152,28 @@ const Hero = () => {
         </div>
 
         {/* =========================
-            SCROLL INDICATOR
+            SCROLL INDICATOR — RESPONSIVO
         ========================= */}
-
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center md:bottom-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">
+          <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-white/30 mb-2 md:mb-3">
             Scroll
           </span>
 
-          <div className="h-16 overflow-hidden">
+          <div className="h-[2.5rem] md:h-[clamp(3rem,6vh,4.5rem)] overflow-hidden">
             <motion.div
-              animate={{ y: [0, 32, 0] }}
-              transition={{ repeat: Infinity, duration: 1.4 }}
-              className="w-px h-8 bg-linear-to-b from-accent to-transparent"
+              animate={{ y: [0, 22, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.3,
+                ease: "easeInOut",
+              }}
+              className="w-px h-6 md:h-8 bg-linear-to-b from-accent to-transparent"
             />
           </div>
         </motion.div>
