@@ -165,7 +165,7 @@ const Hero = () => {
             Scroll
           </span>
 
-          <div className="h-[2.5rem] md:h-[clamp(3rem,6vh,4.5rem)] overflow-hidden">
+          <div className="h-10 md:h-[clamp(3rem,6vh,4.5rem)] overflow-hidden">
             <motion.div
               animate={{ y: [0, 22, 0] }}
               transition={{
