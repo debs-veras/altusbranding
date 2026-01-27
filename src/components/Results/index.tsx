@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Results = () => {
   const results = [
     'Marca mais forte e reconhecida',

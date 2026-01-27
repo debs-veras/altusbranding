@@ -1,5 +1,3 @@
-import React from "react";
-
 const Clients = () => {
   return (
     <section id="clientes" className="py-20 bg-gray-50">
