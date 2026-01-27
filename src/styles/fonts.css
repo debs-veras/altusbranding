@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "AltusBrandingFont";
+  src: url("/fonts/107a82b03afe661cb8ef268bd146c38c.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "AltusBrandingFont", Arial, sans-serif;
+}
