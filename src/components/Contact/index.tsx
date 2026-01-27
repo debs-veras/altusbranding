@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail, Phone, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "../../hocks/use-toast";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { FiMapPin, FiPhone, FiSend } from "react-icons/fi";
+import { RiMailFill } from "react-icons/ri";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -16,32 +17,32 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
     toast({
       title: "Mensagem enviada!",
       description: "Entraremos em contato em breve.",
     });
-    
+
     setIsSubmitting(false);
     (e.target as HTMLFormElement).reset();
   };
 
   const contactInfo = [
     {
-      icon: Mail,
+      icon: RiMailFill,
       label: "Email",
       value: "contato@altusbranding.com",
     },
     {
-      icon: Phone,
+      icon: FiPhone,
       label: "Telefone",
       value: "(11) 99999-9999",
     },
     {
-      icon: MapPin,
+      icon: FiMapPin,
       label: "Localização",
       value: "São Paulo, SP",
     },
@@ -126,7 +127,7 @@ const Contact = () => {
                 ) : (
                   <>
                     Enviar Mensagem
-                    <Send className="w-4 h-4 ml-2" />
+                    <FiSend className="w-4 h-4 ml-2" />
                   </>
                 )}
               </Button>

@@ -9,8 +9,9 @@ import Method from "./components/Method";
 // import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
-import About from "./pages/About";
 import Differentials from "./components/Differentials";
+import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       <Services />
       <Method />
       <Differentials />
-      {/* <Contact /> */}
+      <Contact />
       <Footer />
     </div>
   );

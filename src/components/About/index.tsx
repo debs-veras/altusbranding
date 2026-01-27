@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { FiTarget, FiTrendingUp, FiUsers } from "react-icons/fi";
-import { RiSparkling2Fill } from "react-icons/ri";
+import { FiTarget, FiTrendingUp } from "react-icons/fi";
+import { RiSparkling2Fill, RiUserSearchFill } from "react-icons/ri";
 
 const About = () => {
   const ref = useRef(null);
@@ -22,7 +22,7 @@ const About = () => {
       title: "Comunicar autoridade",
     },
     {
-      icon: FiUsers,
+      icon: RiUserSearchFill,
       title: "Sustentar crescimento",
     },
   ];
