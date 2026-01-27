@@ -10,7 +10,7 @@ const Hero = () => {
   });
 
   /* =========================
-     BACKGROUND LAYERS
+     BACKGROUND
   ========================= */
 
   const bgColor = useTransform(
@@ -22,21 +22,12 @@ const Hero = () => {
   const glowY = useTransform(scrollYProgress, [0, 1], ["-30%", "40%"]);
   const glowOpacity = useTransform(scrollYProgress, [0, 0.4], [0.45, 0]);
 
-  const shadowOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.25]);
-
   /* =========================
-     PARALLAX CAMADAS
-  ========================= */
-
-  const layerSlow = useTransform(scrollYProgress, [0, 1], [0, -40]);
-  const layerMid = useTransform(scrollYProgress, [0, 1], [0, -90]);
-
-  /* =========================
-     TEXTO
+     PARALLAX
   ========================= */
 
   const titleY = useTransform(scrollYProgress, [0, 0.4], [0, -120]);
-  const subtitleY = useTransform(scrollYProgress, [0, 0.4], [0, -70]);
+  const subtitleY = useTransform(scrollYProgress, [0, 0.4], [0, -60]);
 
   const textColor = useTransform(
     scrollYProgress,
@@ -49,38 +40,22 @@ const Hero = () => {
       id="home"
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="relative h-[260vh] overflow-hidden"
+      className="relative h-[220vh] overflow-hidden"
     >
       {/* =========================
-          BACKGROUND IMERSIVO
+          BACKGROUND FX
       ========================= */}
 
       <div className="absolute inset-0 pointer-events-none">
-        {/* Glow principal */}
         <motion.div
           style={{ top: glowY, opacity: glowOpacity }}
-          className="absolute left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] rounded-full
+          className="absolute left-1/2 -translate-x-1/2 w-lg h-128 rounded-full
           bg-[radial-gradient(circle,rgba(45,62,80,0.25),transparent_65%)]"
-        />
-
-        {/* Sombra de profundidade */}
-        <motion.div
-          style={{ opacity: shadowOpacity }}
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-foreground/80"
-        />
-
-        {/* Noise premium */}
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>\')',
-          }}
         />
       </div>
 
       {/* =========================
-          HERO STICKY
+          HERO — STICKY
       ========================= */}
 
       <div className="sticky top-0 h-screen flex items-center">
@@ -88,79 +63,110 @@ const Hero = () => {
           style={{ color: textColor }}
           className="relative z-10 w-full max-w-6xl mx-auto px-6"
         >
-          {/* EYEBROW */}
-          <motion.span
-            style={{ y: layerSlow }}
-            className="block mb-8 text-xs tracking-[0.35em] uppercase opacity-60"
-          >
+          <span className="block mb-8 text-xs tracking-[0.35em] uppercase opacity-60">
             Design com propósito
-          </motion.span>
+          </span>
 
-          {/* TÍTULO (mask reveal) */}
-          <div className="overflow-hidden">
-            <motion.h1
-              style={{ y: titleY }}
-              className="text-[clamp(2.8rem,5.5vw,5.5rem)] font-light leading-[1.06] tracking-tight"
-            >
-              Não criamos apenas
-              <br />
-              identidades visuais.
-              <br />
-              <span className="font-semibold">Criamos sistemas de marca.</span>
-            </motion.h1>
-          </div>
+          <motion.h1
+            style={{ y: titleY }}
+            className="text-[clamp(3rem,5.5vw,5.5rem)] font-light leading-[1.05]"
+          >
+            Não criamos apenas
+            <br />
+            identidades visuais.
+            <br />
+            <span className="font-semibold">Criamos sistemas de marca.</span>
+          </motion.h1>
 
-          {/* Linha accent */}
-          <motion.div
-            style={{ y: layerMid }}
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
-            className="h-[2px] bg-accent mt-10"
-          />
-
-          {/* TEXTO */}
           <motion.p
             style={{ y: subtitleY }}
-            className="mt-10 max-w-xl text-lg opacity-70 leading-relaxed"
+            className="mt-10 max-w-xl text-lg opacity-70"
           >
-            Estratégia, design e experiência digital para marcas que buscam
-            autoridade, clareza e crescimento sustentável.
+            Estratégia, design e experiência digital para marcas que querem
+            autoridade e crescimento real.
           </motion.p>
         </motion.div>
       </div>
 
       {/* =========================
-          ATO 2 — TRANSIÇÃO
+          ATO 2 — CENTRALIZADO
       ========================= */}
 
-      <section className="relative h-screen flex items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 120 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto px-6 text-background"
-        >
-          <h2 className="text-[clamp(2.2rem,4.5vw,4rem)] font-light leading-tight">
-            Estratégia antes da estética.
-            <br />
-            <span className="font-semibold">Clareza antes do ruído.</span>
-          </h2>
-
-          <div className="mt-8 flex flex-wrap gap-8 md:gap-12">
-            {[
-              "BRANDING ESTRATÉGICO",
-              "DESIGN DE ALTO IMPACTO",
-              "EXPERIÊNCIAS DIGITAIS",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="text-xs tracking-[0.25em] uppercase opacity-60"
-              >
-                {tag}
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="relative w-full max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* ESQUERDA */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-white/90">
+              Estratégia antes da estética.
+              <br />
+              <span className="font-light text-white/60">
+                Clareza antes do ruído.
               </span>
+            </h2>
+
+            <div className="h-1 w-24 bg-accent/50 my-8 rounded-full" />
+
+            <p className="text-lg text-white/70 max-w-md">
+              Construímos marcas como sistemas vivos: coerentes, escaláveis e
+              feitas para durar.
+            </p>
+          </motion.div>
+
+          {/* DIREITA */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center space-y-12 border-t lg:border-t-0 lg:border-l border-white/10 pt-12 lg:pt-0 lg:pl-12"
+          >
+            {[
+              ["BRANDING ESTRATÉGICO", "Posicionamento e diferenciação"],
+              ["DESIGN DE ALTO IMPACTO", "Identidade visual e design systems"],
+              ["EXPERIÊNCIAS DIGITAIS", "Interfaces claras e humanas"],
+            ].map(([title, desc], i) => (
+              <div key={title}>
+                <span className="text-xs text-white/30 font-mono mr-4">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="inline text-xs tracking-[0.25em] uppercase text-white/80">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm text-white/60 ml-10 border-l border-white/10 pl-4">
+                  {desc}
+                </p>
+              </div>
             ))}
+          </motion.div>
+        </div>
+
+        {/* =========================
+            SCROLL INDICATOR
+        ========================= */}
+
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          viewport={{ once: true }}
+        >
+          <span className="text-xs tracking-[0.3em] uppercase text-white/30 mb-4">
+            Scroll
+          </span>
+
+          <div className="h-16 overflow-hidden">
+            <motion.div
+              animate={{ y: [0, 32, 0] }}
+              transition={{ repeat: Infinity, duration: 1.4 }}
+              className="w-px h-8 bg-linear-to-b from-accent to-transparent"
+            />
           </div>
         </motion.div>
       </section>

@@ -1,18 +1,62 @@
+import { motion } from "framer-motion";
+import logo from "../../assets/logo.png";
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center">
-          <div className="text-3xl font-bold mb-4">ALTUSBRANDING</div>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-            Especializada em branding, design gráfico e web design, focada em construir marcas sólidas, coerentes e memoráveis.
-          </p>
-          <div className="flex justify-center space-x-6 mb-8">
-            <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
-            <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-white">Behance</a>
+    <footer className="relative bg-[hsl(210,29%,8%)]">
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-16">
+        {/* Top */}
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+          {/* Brand */}
+          <div>
+            <motion.img
+              src={logo}
+              alt="AltusBranding"
+              className="w-20 h-20 object-contain mb-10 opacity-90"
+              loading="lazy"
+              whileHover={{ opacity: 1 }}
+            />
+
+            <p className="max-w-xl text-white/60 text-lg leading-relaxed">
+              Criamos sistemas de marca que unem estratégia, estética e
+              experiência para posicionar empresas com clareza, autoridade e
+              crescimento sustentável.
+            </p>
           </div>
-          <p className="text-gray-500">&copy; {new Date().getFullYear()} AltusBranding. Todos os direitos reservados.</p>
+
+          {/* Links */}
+          <div className="flex flex-col gap-6 lg:items-end">
+            <span className="text-xs tracking-[0.35em] uppercase text-white/30">
+              Conecte-se
+            </span>
+
+            <div className="flex gap-8 text-sm uppercase tracking-wider">
+              {["Instagram", "LinkedIn", "WhatsApp"].map((item) => (
+                <motion.a
+                  key={item}
+                  href="#"
+                  whileHover={{ y: -2 }}
+                  className="text-white/50 hover:text-white transition-colors"
+                >
+                  {item}
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="my-16 h-px w-full bg-white/10" />
+
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-xs tracking-widest uppercase text-white/40">
+            © {new Date().getFullYear()} AltusBranding
+          </p>
+
+          <p className="text-xs tracking-widest uppercase text-white/30">
+            Branding · Design · Digital
+          </p>
         </div>
       </div>
     </footer>

@@ -7,7 +7,11 @@ import {
   useTransform,
 } from "framer-motion";
 import { FiChevronRight } from "react-icons/fi";
-import { RiLinkedinFill, RiInstagramFill, RiBehanceFill } from "react-icons/ri";
+import {
+  RiLinkedinFill,
+  RiInstagramFill,
+  RiWhatsappFill,
+} from "react-icons/ri";
 import logo from "../../assets/logo.png";
 import { useMemo } from "react";
 
@@ -150,7 +154,7 @@ const DesignNavLink = ({
 
       {/* Underline animado (ativo/hover) */}
       <motion.div
-        className="absolute left-4 right-4 bottom-1 h-[2px] rounded-full"
+        className="absolute left-4 right-4 bottom-1 h-0.5 rounded-full"
         initial={false}
         animate={{
           scaleX: isHovered || active ? 1 : 0,
@@ -392,11 +396,10 @@ const Header = () => {
   const navItems = useMemo(
     () => [
       { id: "home", label: "Início" },
+      { id: "sobre", label: "Sobre Nós" },
       { id: "servicos", label: "Serviços" },
       { id: "metodo", label: "Método" },
-      { id: "portfolio", label: "Portfólio" },
-      { id: "clientes", label: "Clientes" },
-      { id: "contato", label: "Contato" },
+      { id: "diferenciais", label: "Diferenciais" },
     ],
     [],
   );
@@ -409,6 +412,7 @@ const Header = () => {
       const sections = navItems.map((item) => item.id);
       const scrollPosition = window.scrollY + 100;
 
+      let found = false;
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -418,9 +422,13 @@ const Header = () => {
             scrollPosition < offsetTop + offsetHeight
           ) {
             setActiveSection(section);
+            found = true;
             break;
           }
         }
+      }
+      if (!found) {
+        setActiveSection("");
       }
     };
 
@@ -540,9 +548,9 @@ const Header = () => {
                   color="#E4405F"
                 />
                 <SocialIcon
-                  icon={RiBehanceFill}
-                  href="https://behance.net"
-                  color="#0057FF"
+                  icon={RiWhatsappFill}
+                  href="https://whatsapp.com"
+                  color="#25D366"
                 />
               </div>
             </nav>

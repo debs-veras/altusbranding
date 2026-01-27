@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { useToast } from "../../hocks/use-toast";
+import { useToast } from "../../hooks/use-toast";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
@@ -49,7 +49,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-24 md:py-32 bg-background" ref={ref}>
+    <section id="contato" className="py-24 md:py-32 bg-secondary" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

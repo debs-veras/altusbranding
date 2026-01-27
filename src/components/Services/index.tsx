@@ -62,11 +62,8 @@ export default function Services() {
     <section
       id="servicos"
       ref={ref}
-      className="relative py-28 bg-background overflow-hidden"
+      className="relative py-28 bg-secondary overflow-hidden"
     >
-      {/* Glow sutil de fundo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(220,38,38,0.06),transparent_40%)] pointer-events-none" />
-
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -149,7 +146,7 @@ export default function Services() {
                   }}
                   initial={{ scaleX: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-accent to-transparent origin-left"
+                  className="absolute bottom-0 left-0 h-0.5 w-full bg-linear-to-r from-accent to-transparent origin-left"
                 />
               </motion.div>
             );
