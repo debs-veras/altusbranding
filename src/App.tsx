@@ -6,19 +6,23 @@ import Services from "./components/Services";
 import Differentials from "./components/Differentials";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
-  <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Method />
-      <Differentials />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <Toaster />
+      <div className="min-h-screen">
+        <Header />
+        <Hero />
+        <About />
+        <Services />
+        <Method />
+        <Differentials />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 
