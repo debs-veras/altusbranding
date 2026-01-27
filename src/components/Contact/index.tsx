@@ -37,7 +37,7 @@ const Contact = () => {
   });
 
   const onSubmit = async (
-    data: ContactFormData,
+    _: ContactFormData,
     e?: React.BaseSyntheticEvent,
   ) => {
     setIsSubmitting(true);
