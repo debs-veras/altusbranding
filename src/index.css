@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
+@font-face {
+  font-family: "AltusBrandingFont";
+  src: url("/fonts/107a82b03afe661cb8ef268bd146c38c.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* Base styles */
 html {
   scroll-behavior: smooth;
@@ -8,17 +14,23 @@ html {
 }
 
 body {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "AltusBrandingFont", Arial, sans-serif;
   background: #f7f8fa;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+}
 /* Selection styling */
 ::selection {
   background: rgba(255, 27, 27, 0.2);
@@ -39,7 +51,6 @@ body {
 *:focus:not(:focus-visible) {
   outline: none;
 }
-
 
 @theme {
   /* AltusBranding Color Palette */
