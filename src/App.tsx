@@ -7,10 +7,15 @@ import Differentials from "./components/Differentials";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import { Toaster } from "./components/ui/toaster";
+import { Seo } from "./components/Seo";
 
 function App() {
   return (
     <>
+      <Seo
+        title="Altus Branding | Branding estratégico, design e experiência digital"
+        description="Branding estratégico, identidade visual, design de alto impacto e experiências digitais para marcas que buscam autoridade e crescimento real."
+      />
       <Toaster />
       <div className="min-h-screen">
         <Header />

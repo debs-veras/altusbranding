@@ -68,7 +68,9 @@ const Differentials = () => {
               <div className="p-2.5 bg-accent/10 rounded-md">
                 <item.icon className="w-5 h-5 text-accent" />
               </div>
-              <span className="font-medium text-foreground">{item.title}</span>
+              <h3 className="font-medium text-foreground text-base m-0 p-0">
+                {item.title}
+              </h3>
             </motion.div>
           ))}
         </div>

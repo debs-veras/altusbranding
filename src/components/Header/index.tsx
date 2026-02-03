@@ -494,8 +494,8 @@ const Header = () => {
           transition={{ duration: 0.5 }}
         />
 
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 relative">
-          <div className="flex justify-between items-center py-3 md:py-4">
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-wrap justify-between items-center py-3 md:py-4 ">
             {/* Logo */}
             <motion.div
               className="relative group cursor-pointer"
@@ -510,12 +510,15 @@ const Header = () => {
                   src={logo}
                   alt="Logo AltusBranding"
                   className="w-48 h-auto object-contain"
+                  width="192"
+                  height="48"
+                  loading="lazy"
                 />
               </a>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-1 mt-2">
               {navItems.map((item, index) => (
                 <DesignNavLink
                   key={item.id}

@@ -41,6 +41,8 @@ const Hero = () => {
       ref={ref}
       style={{ backgroundColor: bgColor }}
       className="relative max-h-[220vh] overflow-hidden"
+      aria-label="Seção principal de destaque do site"
+      role="region"
     >
       {/* =========================
           BACKGROUND FX
@@ -61,18 +63,26 @@ const Hero = () => {
           HERO — STICKY
       ========================= */}
 
-      <div className="sticky top-0 h-screen flex items-center">
+      <div
+        className="sticky top-0 h-screen flex items-center"
+        role="presentation"
+      >
         <motion.div
           style={{ color: textColor }}
-          className="relative z-10 w-full max-w-6xl mx-auto px-6"
+          className="relative z-10 w-full max-w-7xl mx-auto px-6"
         >
-          <span className="block mb-8 text-xs tracking-[0.35em] uppercase opacity-60">
+          <motion.h2
+            className="block mb-8 text-xs tracking-[0.35em] uppercase opacity-60"
+            aria-label="Slogan"
+            style={{ y: titleY }}
+          >
             Design com propósito
-          </span>
+          </motion.h2>
 
           <motion.h1
             style={{ y: titleY }}
             className="text-[clamp(2.6rem,6vw,5.5rem)] font-light leading-[1.05]"
+            aria-label="Título principal: Criamos sistemas de marca"
           >
             Não criamos apenas
             <br />
@@ -84,6 +94,7 @@ const Hero = () => {
           <motion.p
             style={{ y: subtitleY }}
             className="mt-10 max-w-xl text-base md:text-lg opacity-70"
+            aria-label="Descrição do serviço"
           >
             Estratégia, design e experiência digital para marcas que querem
             autoridade e crescimento real.
@@ -95,8 +106,13 @@ const Hero = () => {
           ATO 2
       ========================= */}
 
-      <section className="relative h-screen flex items-center justify-center">
-        <div className="relative w-full max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section
+        className="relative h-screen flex items-center justify-center"
+        aria-label="Diferenciais e métodos"
+        role="region"
+        tabIndex={-1}
+      >
+        <div className="relative w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* ESQUERDA */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -105,13 +121,13 @@ const Hero = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h2 className="text-[clamp(1.9rem,4vw,3.2rem)] font-semibold leading-tight text-white/90">
+            <h3 className="text-[clamp(1.9rem,4vw,3.2rem)] font-semibold leading-tight text-white/90">
               Estratégia antes da estética.
               <br />
               <span className="font-light text-white/60">
                 Clareza antes do ruído.
               </span>
-            </h2>
+            </h3>
 
             <div className="h-1 w-24 bg-accent/50 my-8 rounded-full" />
 
@@ -160,6 +176,7 @@ const Hero = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1 }}
           viewport={{ once: true }}
+          aria-label="Indicador de rolagem"
         >
           <span className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-white/30 mb-2 md:mb-3">
             Scroll

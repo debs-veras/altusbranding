@@ -36,10 +36,7 @@ const Contact = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (
-    _: ContactFormData,
-    e?: React.BaseSyntheticEvent,
-  ) => {
+  const onSubmit = async (_: ContactFormData, e?: React.BaseSyntheticEvent) => {
     setIsSubmitting(true);
 
     try {
