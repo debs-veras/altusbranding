@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# AltusBranding
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page institucional para AltusBranding, focada em branding estratégico, design e experiência digital.
 
-Currently, two official plugins are available:
+## Recursos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- SEO otimizado (meta tags, dados estruturados, canonical)
+- Estrutura semântica e acessível
+- Imagens otimizadas e lazy loading
+- Responsividade total (mobile friendly)
+- Componentes modernos com animações (Framer Motion)
+- Formulário de contato integrado
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Hook Form + Zod
+- React Helmet Async
 
-## Expanding the ESLint configuration
+## Scripts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `pnpm dev` — inicia o servidor de desenvolvimento
+- `pnpm build` — gera build de produção
+- `pnpm preview` — visualiza build
+- `pnpm lint` — verifica padrões de código
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Estrutura
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  App.tsx
+  main.tsx
+  components/
+    Hero/
+    Header/
+    Footer/
+    Services/
+    Method/
+    Differentials/
+    Contact/
+    About/
+    Seo.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Instale as dependências:
+   ```sh
+   pnpm install
+   ```
+2. Inicie o projeto:
+   ```sh
+   pnpm dev
+   ```
+3. Acesse `http://localhost:5173` no navegador.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Personalização
+
+- Edite os textos e imagens nos componentes em `src/components/`
+- Ajuste as meta tags e dados estruturados em `src/components/Seo.tsx`
